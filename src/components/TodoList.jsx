@@ -1,10 +1,10 @@
-import React from 'react';
-import tick from '../assets/image/tick.png';
-import not_tick from '../assets/image/not_tick.png'; 
-import deleteIcon from '../assets/image/delete.png';
+import React from "react";
+import tick from "../assets/image/tick.png";
+import not_tick from "../assets/image/not_tick.png";
+import deleteIcon from "../assets/image/delete.png";
+import editIcon from "../assets/image/edit.png";
 
-
-const TodoList = ({ tasks, deleteTask, toggleComplete }) => {
+const TodoList = ({ tasks, deleteTask, toggleComplete, editTaskFunction }) => {
   return (
     <div className="mt-6 space-y-3">
       {tasks.map((task, index) => (
@@ -13,7 +13,7 @@ const TodoList = ({ tasks, deleteTask, toggleComplete }) => {
           className="flex items-center justify-between gap-4 p-2 bg-gray-50 rounded-md shadow-sm"
         >
           <div className="flex items-center gap-3">
-            
+          
             <img
               onClick={() => toggleComplete(index)}
               className="w-5 h-5 cursor-pointer"
@@ -21,12 +21,11 @@ const TodoList = ({ tasks, deleteTask, toggleComplete }) => {
               alt="tick toggle"
             />
 
-            
             <h1
               className={`text-lg transition-all duration-300 ${
                 task.completed
-                  ? 'line-through text-gray-400'
-                  : 'text-gray-800'
+                  ? "line-through text-gray-400"
+                  : "text-gray-800"
               }`}
             >
               {task.text}
@@ -40,6 +39,14 @@ const TodoList = ({ tasks, deleteTask, toggleComplete }) => {
               className="h-5 w-5 cursor-pointer"
               src={deleteIcon}
               alt="delete icon"
+            />
+
+           
+            <img
+              onClick={() => editTaskFunction(index)}
+              className="h-5 w-5 cursor-pointer"
+              src={editIcon}
+              alt="edit icon"
             />
           </div>
         </div>
