@@ -1,11 +1,9 @@
 import React from 'react';
-
+import Home from './components/Home'
 const App = () => {
   return (
-    <div>
-       <h1 className="text-3xl font-bold underline">
-      Hello world!
-    </h1>
+    <div className='bg-slate-500 min-h-screen w-full'>
+      <Home />
     </div>
   );
 }
